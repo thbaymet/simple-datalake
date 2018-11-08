@@ -12,8 +12,12 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
+        <!-- SCALA -->
         <scala.version>2.11</scala.version>
         <scala.binary.version>2.11.8</scala.binary.version>
+        <scalatest.version>3.0.0</scalatest.version>
+
+
     </properties>
 
     <dependencies>
@@ -24,6 +28,14 @@
             <artifactId>scala-library</artifactId>
             <version>${scala.binary.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.version}</artifactId>
+            <version>${scalatest.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
 
     <build>

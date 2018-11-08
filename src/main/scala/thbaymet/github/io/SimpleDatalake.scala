@@ -1,6 +1,7 @@
 package thbaymet.github.io
 
 class SimpleDatalake {
+  val getProjectName: String = "SimpleDatalake"
 
 }
 
