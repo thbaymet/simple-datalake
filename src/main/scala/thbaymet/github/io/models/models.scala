@@ -16,6 +16,21 @@ User
   picture: Picture,
   nat: String
 )
+{
+  /**
+    * Defines whether this user has american nationality
+    */
+  val isAmerican: Boolean = nat.equalsIgnoreCase("US")
+
+  /**
+    * Defines if that user is a male or not
+    */
+  val isMale: Boolean = gender.equalsIgnoreCase("male")
+
+
+  val fullName: String = List(name.first, name.last).mkString(" ")
+
+}
 
 case
 class
