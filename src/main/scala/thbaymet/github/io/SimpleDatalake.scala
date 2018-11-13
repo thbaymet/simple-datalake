@@ -1,6 +1,7 @@
 package thbaymet.github.io
 
 import org.apache.spark.sql.SparkSession
+import thbaymet.github.io.models._
 import thbaymet.github.io.providers.DataProvider
 
 class SimpleDatalake {
@@ -19,10 +20,12 @@ object SimpleDatalake extends scala.App {
 
   spark.conf.getAll.foreach(println)
 
-  val customers = DataProvider.getCustomers
-  customers.foreach(println)
+  DataProvider.fetchUserData()
 
-  val agreements = DataProvider.getAgreements
-  agreements.foreach(println)
+  import spark.implicits._
+  val data = spark.read.json("data/customers.json").as[User]
+
+  data.show
+  data.printSchema()
 
 }
