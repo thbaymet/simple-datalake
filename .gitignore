@@ -2,3 +2,6 @@
 *.iml
 *.jar
 target/*
+derby.log
+spark-warehouse/*
+metastore_db/*

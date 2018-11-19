@@ -15,6 +15,7 @@ object SimpleDatalake extends scala.App {
     .builder()
     .appName("SimpleDatalake")
     .master("local")
+    .enableHiveSupport()
     .getOrCreate()
 
   spark.conf.getAll.foreach(println)
@@ -34,6 +35,17 @@ object SimpleDatalake extends scala.App {
   val females = data.filter(!_.isMale)
   println(females.count())
 
+  /**
+    * Save data in a table
+    */
+  val tableName = "io_customers"
+  spark.sql(s"drop table if exists $tableName")
+  data.write.format("parquet").saveAsTable(tableName)
 
-
+  /**
+    * Explore the table
+    */
+  val table = spark.table(tableName)
+  table.printSchema()
+  table.show()
 }
