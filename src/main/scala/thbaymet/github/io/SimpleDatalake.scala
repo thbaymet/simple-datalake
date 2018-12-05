@@ -47,5 +47,8 @@ object SimpleDatalake extends scala.App {
     */
   val table = spark.table(tableName)
   table.printSchema()
-  table.show()
+
+  val columnsToShow = Seq("name.first", "email", "gender", "dob.age", "location.city")
+
+  table.selectExpr(columnsToShow :_ *).show()
 }
