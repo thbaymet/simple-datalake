@@ -5,3 +5,4 @@ target/*
 derby.log
 spark-warehouse/*
 metastore_db/*
+data/word_count/*
