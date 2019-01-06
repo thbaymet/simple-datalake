@@ -11,8 +11,7 @@ class BetaDenormalizer extends Denormalizer {
     * @param agreement agreement data frame
     * @return customer and agreement joined in a single data frame
     */
-  override def denormalize(customer: DataFrame, agreement: DataFrame)
-  : DataFrame = {
+  override def denormalize(customer: DataFrame, agreement: DataFrame): DataFrame = {
 
     /**
       * Will add Beta Denormalizer logic before join
