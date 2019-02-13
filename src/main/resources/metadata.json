@@ -1,0 +1,14 @@
+{
+  "columns": [
+    {
+      "toColumn": "firstName",
+      "fromColumn": "firstName",
+      "method": "NameCleaner"
+    },
+    {
+      "toColumn": "lastName",
+      "fromColumn": "lastName",
+      "method": "NameCleaner"
+    }
+  ]
+}
