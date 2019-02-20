@@ -21,7 +21,8 @@
         <apache.spark.version>2.3.0</apache.spark.version>
         <spark.version>2.3.0.cloudera2</spark.version>
 
-
+        <!-- Lif JSON -->
+        <liftjson.version>3.3.0</liftjson.version>
     </properties>
 
     <repositories>
@@ -38,6 +39,11 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.binary.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_${scala.version}</artifactId>
+            <version>1.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.scalatest</groupId>
@@ -65,6 +71,12 @@
         </dependency>
 
 
+        <!-- Third-party libraries -->
+        <dependency>
+            <groupId>net.liftweb</groupId>
+            <artifactId>lift-json_${scala.version}</artifactId>
+            <version>${liftjson.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

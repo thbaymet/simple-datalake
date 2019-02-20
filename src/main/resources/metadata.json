@@ -1,14 +1,19 @@
 {
   "columns": [
     {
-      "toColumn": "firstName",
-      "fromColumn": "firstName",
-      "method": "NameCleaner"
+      "toColumn": "genderMaj",
+      "fromColumn": "gender",
+      "method": "upper(gender)"
     },
     {
-      "toColumn": "lastName",
-      "fromColumn": "lastName",
-      "method": "NameCleaner"
+      "toColumn": "natLower",
+      "fromColumn": "nat",
+      "method": "lower(nat)"
+    },
+    {
+      "toColumn": "firstName",
+      "fromColumn": "email",
+      "method": "columnSplit(lower(trim(email)), '[.]')"
     }
   ]
 }
