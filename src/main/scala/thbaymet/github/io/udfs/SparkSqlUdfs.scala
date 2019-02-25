@@ -1,9 +1,12 @@
 package thbaymet.github.io.udfs
 
-import thbaymet.github.io.commons.LocalSparkSession
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.functions._
+import thbaymet.github.io.commons.LocalSparkSession
 
 object SparkSqlUdfs extends scala.App with LocalSparkSession {
+
+  Logger.getRootLogger.setLevel(Level.WARN)
 
   import spark.implicits._
 
@@ -37,6 +40,22 @@ object SparkSqlUdfs extends scala.App with LocalSparkSession {
     .withColumn("abs_random_number", abs(randomNumber()))
     .withColumn("array", array("lit", "current_date"))
     .withColumn("coalesce", coalesce(col("null"), col("lit")))
+    .withColumn("input_file_name", input_file_name())
+    .withColumn("isnull", isnull(col("null")))
+    .withColumn("isnan", isnan(col("null")))
+    .withColumn("negate", negate(col("random_number")))
+    .withColumn("negate1", -col("random_number"))
+    .withColumn("not", not(col("isnull")))
+    .withColumn("not1", !col("isnull"))
+    .withColumn("rand", rand(1))
+    .withColumn("rand1", rand())
+    .withColumn("rand_n", randn(1))
+    .withColumn("rand_n1", randn())
+    .withColumn("spark_partition_id", spark_partition_id())
+    .withColumn("sqrt", sqrt(abs(col("random_number"))))
+    .withColumn("struct", struct(col("name"), col("col"), col("lower")))
+    .withColumn("whenIsNull", when(col("null").isNull, "wasNull").otherwise("wasNotNull"))
+
 
   dfs.printSchema()
   dfs.show()
